@@ -1,9 +1,12 @@
 package com.itpos.itposcheckin;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+//import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
 public class MainActivity extends Activity {
@@ -12,6 +15,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        //tintManager.setStatusBarTintEnabled(true);
+        //tintManager.setTintColor(Color.parseColor("#26a69a"));
     }
 
 
