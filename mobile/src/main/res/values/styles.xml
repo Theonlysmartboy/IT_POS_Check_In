@@ -7,8 +7,9 @@
     <item name="android:actionBarStyle">@style/ActionBar</item>
 </style>
 
-<style name="ActionBar" parent="android:style/Widget.Holo.ActionBar">
+<style name="ActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
     <item name="android:background">@color/teal_400</item>
+    <item name="android:height">@dimen/action_bar_size</item>
 </style>
 
 </resources>
