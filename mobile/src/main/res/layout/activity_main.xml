@@ -15,9 +15,9 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:clipToPadding="false"
-        android:layout_gravity="start"
+        android:layout_gravity="start|bottom"
         android:choiceMode="singleChoice"
-        android:divider="@color/grey_black_1000"
+        android:divider="@color/grey_white_1000"
         android:dividerHeight="1dp"
         android:background="@color/grey_white_1000"
         />
