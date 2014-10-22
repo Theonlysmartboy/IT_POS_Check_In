@@ -17,4 +17,5 @@ public class ToDo extends Fragment {
         View view = inflater.inflate(R.layout.todo, container, false);
         return view;
     }
+    //TODO parse JSON returned from http request and add them to list
 }

@@ -17,4 +17,5 @@ public class TimeClock extends Fragment {
         View view = inflater.inflate(R.layout.time_clock, container, false);
         return view;
     }
+    //TODO onClick make http request and get JSON
 }
