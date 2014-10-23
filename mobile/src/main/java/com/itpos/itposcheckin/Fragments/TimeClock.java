@@ -22,5 +22,10 @@ public class TimeClock extends DefaultFragment {
 
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+    }
+
     //TODO onClick make http request and get JSON
 }
