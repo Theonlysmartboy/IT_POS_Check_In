@@ -22,5 +22,10 @@ public class ToDo extends DefaultFragment {
 
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+    }
+
     //TODO parse JSON returned from http request and add them to list
 }
