@@ -104,7 +104,7 @@ public class NavigationDrawerAdapter extends BaseAdapter {
         ImageView iconImage = (ImageView) convertView.findViewById(R.id.drawer_icon);
         TextView title = (TextView) convertView.findViewById(R.id.drawer_text);
         //apply the specified properties to them
-        iconImage.setImageResource(navigationDrawerItems.get(position).getIcon());
+        iconImage.setImageDrawable(navigationDrawerItems.get(position).getIcon());
         title.setText(navigationDrawerItems.get(position).getTitle());
         //return the created view
         return convertView;

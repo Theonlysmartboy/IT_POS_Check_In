@@ -15,4 +15,14 @@
         <item>@drawable/clock</item>
         <item>@drawable/checklist</item>
     </array>
+
+    <string-array name="employees">
+        <item>Daniel Devers</item>
+        <item>Arlene Devers</item>
+        <item>Kyle Riedemann</item>
+        <item>Marcus Gabilheri</item>
+        <item>Meelaud Boozary</item>
+        <item>Sam Jackson</item>
+        <item>Daniel Douthit</item>
+    </string-array>
 </resources>

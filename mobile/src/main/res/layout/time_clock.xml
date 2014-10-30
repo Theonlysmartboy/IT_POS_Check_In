@@ -7,13 +7,22 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         android:id="@+id/last_timesheet_event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/last_timesheet_event"/>
+        android:text="@string/last_timesheet_event"
+        android:layout_marginBottom="10dp"
+        />
 
+    <Spinner
+        android:id="@+id/employee_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    
     <Button
         android:layout_marginTop="150dp"
         android:id="@+id/time_clock_button"

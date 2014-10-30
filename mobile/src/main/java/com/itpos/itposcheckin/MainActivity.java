@@ -83,8 +83,35 @@ public class MainActivity extends DrawerLayoutActivity {
             default:
                 break;
         }
+
+        if(activeFragment != null) {
+            if(fragmentBundle != null) {
+                currentBundle = fragmentBundle;
+                activeFragment.setArguments(fragmentBundle);
+            }
+
+            fragmentTransaction.setCustomAnimations(R.animator.alpha_in, R.animator.alpha_out, // animations for fragment in
+                    R.animator.alpha_in, R.animator.alpha_out) // animations for fragment out
+                    .replace(R.id.fragment_container, activeFragment, TAG_ACTIVE_FRAGMENT).commit(); // the replace what is inside the FrameLayout with our activeFragment
+
+            // update the selected item and title
+            if(position >= 0) {
+                getDrawerList().setItemChecked(position, true); // we set the item click in the drawer to active
+                getDrawerList().setSelection(position);
+                setTitle(navMenuTitles[position]); // change the title of the action bar to the fragment
+            } else {
+                if(fragmentBundle == null) {
+                    setTitle(fragmentTitles.get(position)); // same as above
+                } else {
+                    setTitle("Check In"); // fall back to default fragment name
+                }
+            }
+        }
     }
 
+    /**
+     * override to change log tag
+     */
     @Override
     public String getLogTag() { return "MainActivity"; }
 
@@ -94,6 +121,8 @@ public class MainActivity extends DrawerLayoutActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        getFragmentManager().putFragment(outState, "activeFragment", activeFragment);
+        if (activeFragment.isAdded()) {
+            getFragmentManager().putFragment(outState, "activeFragment", activeFragment);
+        }
     }
 }
