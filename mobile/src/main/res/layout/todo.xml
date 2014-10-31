@@ -9,14 +9,12 @@
 
     <it.gmariotti.cardslib.library.view.CardListView
         android:id="@+id/computers_list"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="40dp"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:fadingEdge="none"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         card:list_card_layout_resourceID="@layout/list_card_thumbnail_layout"
         style="@style/list_card.thumbnail"/>
 

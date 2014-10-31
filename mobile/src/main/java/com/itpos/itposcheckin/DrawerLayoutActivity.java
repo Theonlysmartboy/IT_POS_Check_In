@@ -3,6 +3,7 @@ package com.itpos.itposcheckin;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -34,6 +35,7 @@ public abstract class DrawerLayoutActivity extends Activity {
         //make action bar icon a toggle and back button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
         // drawer layout stuff
         mTitle = mDrawerTitle = getTitle();
