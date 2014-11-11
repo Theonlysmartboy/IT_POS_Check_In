@@ -1,15 +1,16 @@
 package com.itpos.itposcheckin.NavigationDrawer;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by kylealanr on 4/10/14.
  */
 public class NavigationDrawerItem {
+
     private String title;
-    private int icon;
+    private Drawable icon;
 
-    public NavigationDrawerItem() {}
-
-    public NavigationDrawerItem(String title, int icon) {
+    public NavigationDrawerItem(String title, Drawable icon) {
         this.title = title;
         this.icon = icon;
     }
@@ -18,15 +19,15 @@ public class NavigationDrawerItem {
         return this.title;
     }
 
-    public int getIcon() {
-        return this.icon;
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setIcon(int icon) {
+    public Drawable getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Drawable icon) {
         this.icon = icon;
     }
 

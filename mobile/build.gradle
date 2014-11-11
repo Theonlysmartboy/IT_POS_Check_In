@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
 
     defaultConfig {
         applicationId "com.itpos.itposcheckin"
         minSdkVersion 16
-        targetSdkVersion 20
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -23,5 +23,13 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     wearApp project(':wear')
     compile 'com.google.android.gms:play-services-wearable:+'
-    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    //app compat v7 library
+    compile "com.android.support:appcompat-v7:21.0.+"
+
+    //Core card library
+    compile 'com.github.gabrielemariotti.cards:library:1.9.1'
+
+    //Extra card library, it is required only if you want to use integrations with other libraries
+    compile 'com.github.gabrielemariotti.cards:library-extra:1.9.1'
 }
