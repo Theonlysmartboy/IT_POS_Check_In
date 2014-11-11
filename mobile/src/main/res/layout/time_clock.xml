@@ -7,20 +7,35 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_marginTop="140dp"
+        android:id="@+id/employee_text_view"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:text="Welcome, User!"
+        android:layout_marginTop="115dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_marginTop="15dp"
         android:id="@+id/last_timesheet_event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/last_timesheet_event"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         />
 
-    <Spinner
-        android:id="@+id/employee_spinner"
+    <EditText
+        android:id="@+id/pin_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_gravity="center"
+        android:maxLength="4"
+        android:hint="Enter your pin"
+        android:inputType="numberPassword"
         />
     
     <Button

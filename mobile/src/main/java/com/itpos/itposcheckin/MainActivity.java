@@ -3,7 +3,6 @@ package com.itpos.itposcheckin;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.BaseAdapter;
 
@@ -12,7 +11,6 @@ import com.itpos.itposcheckin.Fragments.TimeClock;
 import com.itpos.itposcheckin.Fragments.ToDo;
 import com.itpos.itposcheckin.NavigationDrawer.NavigationDrawerAdapter;
 import com.itpos.itposcheckin.NavigationDrawer.NavigationDrawerItem;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,9 +32,6 @@ public class MainActivity extends DrawerLayoutActivity {
 
     @Override
     public void init() {
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setTintColor(Color.parseColor("#26a69a"));
 
         // retrieve array from XML
         TypedArray navigationIcons = getResources().obtainTypedArray(R.array.navigation_drawer_icons);

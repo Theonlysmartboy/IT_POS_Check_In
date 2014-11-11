@@ -1,13 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:actionBarStyle">@style/ActionBar</item>
-        <!--
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        -->
+
+        <item name="colorPrimary">@color/teal_400</item>
+        <item name="colorPrimaryDark">@color/teal_600</item>
+        <!-- <item name="android:navigationBarColor">@color/teal_400</item> -->
+        <item name="colorAccent">@color/cyan_400</item>
+
     </style>
 
     <style name="ActionBar" parent="android:style/Widget.Holo.Light.ActionBar">

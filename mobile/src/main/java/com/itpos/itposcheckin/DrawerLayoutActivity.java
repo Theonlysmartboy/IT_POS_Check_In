@@ -2,7 +2,6 @@ package com.itpos.itposcheckin;
 
 import android.app.FragmentManager;
 import android.content.res.Configuration;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -15,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-//import android.support.v4.app.ActionBarDrawerToggle;
 
 /**
  * Created by kylealanr on 10/22/14.
@@ -35,14 +33,12 @@ public abstract class DrawerLayoutActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
 
-        android.support.v7.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        android.support.v7.widget.Toolbar toolbar = (Toolbar)findViewById(R.id.compat_toolbar);
         setSupportActionBar(toolbar);
 
-
         //make action bar icon a toggle and back button
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         // drawer layout stuff
         mTitle = mDrawerTitle = getTitle();
@@ -211,7 +207,8 @@ public abstract class DrawerLayoutActivity extends ActionBarActivity {
             // if there is something in the back stack, we need to remove it
             // the framework will handle the fragment change
             getFragmentManager().popBackStack();
-            getActionBar().setTitle(mTitle);
+            //getActionBar().setTitle(mTitle);
+            //getSupportActionBar().setTitle(mTitle);
         }
     }
 }
