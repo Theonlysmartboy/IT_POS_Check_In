@@ -4,7 +4,7 @@
     <string name="app_name">IT POS Check In</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="last_timesheet_event">PLACEHOLDER FOR LAST EVENT</string>
+    <string name="last_timesheet_event">Off The Clock Since: \n Ever</string>
 
     <string-array name="navigation_drawer_items">
         <item>Check In</item>
