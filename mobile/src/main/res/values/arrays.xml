@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="user_pins">
+        <item>0000</item>
+        <item>0001</item>
+        <item>0002</item>
+        <item>0003</item>
+        <item>0004</item>
+        <item>0005</item>
+        <item>0006</item>
+    </string-array>
+
+    <string-array name="employees">
+        <item>Daniel Devers</item>
+        <item>Arlene Devers</item>
+        <item>Kyle Riedemann</item>
+        <item>Marcus Gabilheri</item>
+        <item>Meelaud Boozary</item>
+        <item>Sam Jackson</item>
+        <item>Daniel Douthit</item>
+    </string-array>
+</resources>

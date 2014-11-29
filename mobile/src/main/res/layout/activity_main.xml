@@ -20,6 +20,7 @@
         android:divider="@color/grey_white_1000"
         android:dividerHeight="1dp"
         android:background="@color/grey_white_1000"
+        android:listSelector="@drawable/drawer_selector"
         />
 
 </android.support.v4.widget.DrawerLayout>

@@ -14,7 +14,6 @@
         </option>
       </GradleProjectSettings>
     </option>
-    <option name="gradleVmOptions" value="-XX:MaxPermSize=1G" />
   </component>
 </project>
 
