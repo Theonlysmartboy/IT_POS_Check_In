@@ -1,5 +1,7 @@
 package com.itpos.itposcheckin.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -43,8 +45,6 @@ public class TimeClock extends DefaultFragment {
 
         final EditText pinBox = (EditText)view.findViewById(R.id.pin_box);
 
-
-
         checkInButton = (Button)view.findViewById(R.id.time_clock_button);
         checkInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +52,7 @@ public class TimeClock extends DefaultFragment {
             if (clockAuth(pinBox.getText().toString())) {
                 timeClock(isCheckIn);
                 isCheckIn = !isCheckIn;
+
             } else {
                 errorToast();
             }
@@ -69,8 +70,8 @@ public class TimeClock extends DefaultFragment {
     //return the current datetime as a string to show the user
     public String getDate() {
         Calendar calNow = Calendar.getInstance();
-        String formattedDate = String.valueOf(calNow.getTime());
-        return formattedDate;
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        return String.valueOf(fmt.format(calNow.getTime()));
     }
 
     public boolean clockAuth(String pin) {
@@ -93,6 +94,11 @@ public class TimeClock extends DefaultFragment {
         TextView employeeText = (TextView) getActivity().findViewById(R.id.employee_text_view);
         employeeText.setText(employeeName);
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("com.itpos.itposcheckin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putString("employee_name", employeeName);
+        editor.apply();
         empName = employeeName;
     }
 
@@ -111,6 +117,13 @@ public class TimeClock extends DefaultFragment {
         if (isCheckIn) {
             TextView lastEvent = (TextView) getActivity().findViewById(R.id.last_timesheet_event);
             timeIn = getDate();
+
+            SharedPreferences preferences = getActivity().getSharedPreferences("com.itpos.itposcheckin", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            editor.putString("clock_in", timeIn);
+            editor.apply();
+
             lastEvent.setText("On The Clock Since: \n" + timeIn);
 
             Toast toast = Toast.makeText(getActivity(), "Checking in..." + timeIn, Toast.LENGTH_SHORT);
@@ -120,34 +133,30 @@ public class TimeClock extends DefaultFragment {
         } else {
             TextView lastEvent = (TextView)getActivity().findViewById(R.id.last_timesheet_event);
             timeOut = getDate();
+
+            SharedPreferences preferences = getActivity().getSharedPreferences("com.itpos.itposcheckin", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            editor.putString("clock_out", timeOut);
+            editor.apply();
+
             lastEvent.setText("Off The Clock Since: \n" + timeOut);
 
             Toast toast = Toast.makeText(getActivity(), "Checking out..." + timeOut, Toast.LENGTH_SHORT);
             toast.show();
 
-            JSONObject json = new JSONObject();
-            empName = "Kyle Riedemann";
-            timeIn = "2014-11-07T03:22:00Z";
-            timeOut = "2014-11-07T04:22:00Z";
-            try {
-                json.put("employee_name", empName);
-                json.put("clock_in", timeIn);
-                json.put("clock_out", timeOut);
-                StringEntity se = new StringEntity(json.toString());
-                se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-            } catch (JSONException e) {
-                Log.e("JSONException", "Error in HttpPost");
-            } catch (UnsupportedEncodingException e) {
-                Log.e("UnsupportedEncodingException", "Error in HttpPost");
-            }
-            new AsyncPostTest().execute();
+            //empName = "Test Employee";
+            //timeIn = "2014-11-07T03:22:00Z";
+            //timeOut = "2014-11-07T04:22:00Z";
+
+            new AsyncPostTest().execute(preferences.getString("employee_name", "Test"), preferences.getString("clock_in", "1979-11-07T01:00:00Z"), preferences.getString("clock_out", "1979-11-07T05:00:00Z"));
 
             checkInButton.setText("Clock In");
         }
     }
 
     //TODO onClick make HttpPost for clock in, then use same id for HttpPut request after
-    //private class MyTask extends AsyncTask<Void, Void, Void> { ... }
+
     /*
     The three types used by an asynchronous task are the following:
 
@@ -161,17 +170,18 @@ public class TimeClock extends DefaultFragment {
         @Override
         protected Void doInBackground(String... params) {
             //PostTest();
+            String temp1, temp2, temp3 = "";
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("http://104.236.41.123:8000/timesheet/");
             HttpResponse response;
             JSONObject json = new JSONObject();
-            //empName = "Kyle Riedemann";
-            //timeIn = "2014-11-07T03:22:00Z";
-            //timeOut = "2014-11-07T04:22:00Z";
+            temp1 = params[0];
+            temp2 = params[1];
+            temp3 = params[2];
             try {
-                json.put("employee_name", empName);
-                json.put("clock_in", timeIn);
-                json.put("clock_out", timeOut);
+                json.put("employee_name", temp1);
+                json.put("clock_in", temp2);
+                json.put("clock_out", temp3);
                 StringEntity se = new StringEntity(json.toString());
                 se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
                 httpPost.setEntity(se);
@@ -185,32 +195,6 @@ public class TimeClock extends DefaultFragment {
                 Log.e("JSONException", "Error in HttpPost");
             }
             return null;
-        }
-    }
-
-    public void PostTest() {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost("http://104.236.41.123:8000/timesheet/");
-        JSONObject json = new JSONObject();
-        HttpResponse response;
-        empName = "Kyle Riedemann";
-        timeIn = "2014-11-07T03:22:00Z";
-        timeOut = "2014-11-07T04:22:00Z";
-        try {
-            json.put("employee_name", empName);
-            json.put("clock_in", timeIn);
-            json.put("clock_out", timeOut);
-            StringEntity se = new StringEntity(json.toString());
-            se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-            httpPost.setEntity(se);
-            response = httpClient.execute(httpPost);
-            Log.d("POST Test", "Trying to POST");
-        } catch (ClientProtocolException e) {
-            Log.e("CLIENT PROTOCOL EXCEPTION", "Error in HttpPost");
-        } catch (IOException e) {
-            Log.e("IOException", "Error in HttpPost");
-        } catch (JSONException e) {
-            Log.e("JSONException", "Error in HttpPost");
         }
     }
 }
