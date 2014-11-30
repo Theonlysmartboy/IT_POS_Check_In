@@ -32,4 +32,8 @@ dependencies {
 
     //Extra card library, it is required only if you want to use integrations with other libraries
     compile 'com.github.gabrielemariotti.cards:library-extra:1.9.1'
+
+    //retrofit library from Square
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
 }
