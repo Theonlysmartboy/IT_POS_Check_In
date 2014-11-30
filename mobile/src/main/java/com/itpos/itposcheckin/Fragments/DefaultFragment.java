@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -139,7 +140,9 @@ public abstract class DefaultFragment extends Fragment implements FragmentManage
 
         try {
             canback = getFragmentManager().getBackStackEntryCount() > 0;
-        } catch (Exception ex) {};
+        } catch (Exception ex) {
+            Log.e("DISPLAY HOME UP ERROR", "failed");
+        }
 
         if (canback) {
             mainActivity.getDrawerToggle().setDrawerIndicatorEnabled(false);
