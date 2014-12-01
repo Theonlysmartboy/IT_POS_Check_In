@@ -8,6 +8,7 @@
         <item>0004</item>
         <item>0005</item>
         <item>0006</item>
+        <item>1234</item>
     </string-array>
 
     <string-array name="employees">
@@ -18,5 +19,6 @@
         <item>Meelaud Boozary</item>
         <item>Sam Jackson</item>
         <item>Daniel Douthit</item>
+        <item>Test Employee</item>
     </string-array>
 </resources>

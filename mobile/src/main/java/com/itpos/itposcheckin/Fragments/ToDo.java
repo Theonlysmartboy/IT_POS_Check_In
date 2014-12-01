@@ -31,10 +31,10 @@ public class ToDo extends DefaultFragment {
 
         Computer c0 = new Computer();
         Computer c1 = new Computer("MacBook Pro", "Marcus Gabilheri", false, "Out of disk space");
-        Computer c2 = new Computer("Dell Inspiron 3300", "Old Person", true, "Too old");
+        Computer c2 = new Computer("Dell Dimension", "Old Person", true, "Too old");
         Computer c3 = new Computer("MacBook", "Hali Deubler", false, "Windows installed");
         Computer c4 = new Computer("MacBook Pro", "Ryan Dawkins", false, "Arch exploded");
-        Computer c5 = new Computer("Lenovo Y Series", "Aaron Weaver", false, "No retinas");
+        Computer c5 = new Computer("Lenovo Y500", "Aaron Weaver", false, "No retinas");
 
         ArrayList<Computer> computers = new ArrayList<Computer>(10);
         computers.add(c0);
