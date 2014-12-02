@@ -100,11 +100,6 @@ A video demonstration of the baseline app functionality can be found bellow.
 #### New versions or releases of software with associated updates to documentation, training, and support
 1. New versions will be available on the Google Play Store and update notes will be included in the store description.
 
-
-
-
-
-
 ## App UI
 
 ![Clock in screenshot](/requirements/GUI Mockup/finished_check_in.png?raw=true "Design of the clock in screen")
