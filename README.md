@@ -3,6 +3,8 @@ IT_POS_Check_In
 
 A simple app to clock in and out of IT POS system that also shows a list of computers needing attention to employees. This is a class project for MSIS 4003 at Oklahoma State University that continues the work started for Geekabytes here [IT Point of Sale](https://github.com/RyanDawkins/it-point-of-sale)
 
+This application has also been extended to include an Angluar JS application, the source of which can be found [here](https://github.com/kylealanr/Geekabytes_Internal)
+
 A video demonstration of the baseline app functionality can be found bellow.
 
   <a href="http://www.youtube.com/watch?feature=player_embedded&v=L51B-wW8wlk" target="_blank">
