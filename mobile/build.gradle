@@ -1,19 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    compileSdkVersion 25
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
         applicationId "com.itpos.itposcheckin"
         minSdkVersion 16
-        targetSdkVersion 21
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
-        release {
-            runProguard false
+                release {
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,7 +25,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-wearable:+'
 
     //app compat v7 library
-    compile "com.android.support:appcompat-v7:21.0.+"
+    compile "com.android.support:appcompat-v7:25.0.1"
 
     //Core card library
     compile 'com.github.gabrielemariotti.cards:library:1.9.1'
